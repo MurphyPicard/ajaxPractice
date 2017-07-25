@@ -1,6 +1,6 @@
 $( "h2" ).html( "jQuery is working..." );
 $(document).ready(function(){
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
   var chuckButton = $( "#chuckButton" );
   chuckButton.on( "click", function(  ) {
     $.ajax({
@@ -15,13 +15,13 @@ $(document).ready(function(){
        type: 'GET'
     });//chuck ajax
   });//chuck click function
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
   var weatherButton = $("#weatherButton");
   var weatherKey = "d8f398ea16990213"; //key ends in 2 not 3
   var weatherUrl = "http://api.wunderground.com/api/" + weatherKey + "/conditions/q/CA/San_Francisco.json"
   weatherButton.on("click", function( ){
       $.ajax({
-        url: "https://api.wunderground.com/api/d8f398ea16990212/conditions/q/CA/San_Francisco.json",
+        url: weatherUrl,
         data: {},
         type: 'GET',
         datatype: 'jsonp',
@@ -35,7 +35,7 @@ $(document).ready(function(){
         }
       }); // ajax
   }); //weather click function
-
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  
 
 });// doc ready
