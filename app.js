@@ -17,7 +17,7 @@ $(document).ready(function(){
   });//chuck click function
 
   var weatherButton = $("#weatherButton");
-  var weatherKey = "d8f398ea16990212";
+  var weatherKey = "d8f398ea16990213"; //key ends in 2 not 3
   var weatherUrl = "http://api.wunderground.com/api/" + weatherKey + "/conditions/q/CA/San_Francisco.json"
   weatherButton.on("click", function( ){
       $.ajax({
