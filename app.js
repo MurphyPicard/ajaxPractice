@@ -9,13 +9,33 @@ $(document).ready(function(){
        error: function(event) {console.log('An error has occurred: ', event);},
        dataType: 'jsonp',
        success: function( result ) {
-         console.log(result);
+         console.log("chuck result", result);
          $( "#chuckQuote" ).html( "<strong>" + result.value.joke + "</strong>" );
        },
        type: 'GET'
     });//chuck ajax
-  });//chuck click
+  });//chuck click function
+
+  var weatherButton = $("#weatherButton");
+  var weatherKey = "d8f398ea16990212";
+  var weatherUrl = "http://api.wunderground.com/api/" + weatherKey + "/conditions/q/CA/San_Francisco.json"
+  weatherButton.on("click", function( ){
+      $.ajax({
+        url: "http://api.wunderground.com/api/d8f398ea16990212/conditions/q/CA/San_Francisco.json",
+        data: {},
+        type: 'GET',
+        datatype: 'jsonp',
+        success: function( result ) {
+          console.log("weather result.c_o.icon", result.current_observation.icon);
+          console.log("weather result.c_o.temp_c", result.current_observation.temp_c);
+          $( "#weatherQuote" ).html( "<strong>" + result.current_observation.temperature_string + "</strong>" );
+        },
+        error: function(event){
+          console.log("weather error: ", event);
+        }
+      }); // ajax
+  }); //weather click function
 
 
-  
+
 });// doc ready
