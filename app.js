@@ -1,4 +1,4 @@
-$( "h2" ).html( "jQuery is working..." );
+$( "h2" ).html( "jQuery is working... please click the top button to see a Chuck Norris quote" );
 $(document).ready(function(){
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
   var chuckButton = $( "#chuckButton" );
@@ -30,12 +30,21 @@ $(document).ready(function(){
           console.log("weather result.c_o.temp_c", result.current_observation.temp_c);
           $( "#weatherQuote" ).html( "<strong>" + result.current_observation.temperature_string + "</strong>" );
         },
-        error: function(event){
-          console.log("weather error: ", event);
-        }
+        error: function(event){console.log("weather error: ", event);}
       }); // ajax
   }); //weather click function
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  
-
+  var root = 'https://jsonplaceholder.typicode.com';
+  var practiceButton = $("#practiceButton");
+  practiceButton.on("click", function( ){
+    $.ajax({
+    url: root + '/posts/1',
+    method: 'GET'
+    })
+      .then(function(data) {
+        console.log("practice data", data);
+        $( "#anotherApiId" ).html( "<strong>Title: " + data.title + "</strong><br>" +
+                                   "<strong>Body: "  + data.body  + "</strong>");
+      });//then
+  });// practice click
 });// doc ready
