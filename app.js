@@ -4,7 +4,7 @@ $(document).ready(function(){
   var chuckButton = $( "#chuckButton" );
   chuckButton.on( "click", function(  ) {
     $.ajax({
-       url: "http://api.icndb.com/jokes/random?firstName=Chuck&amp;lastName=Norris",
+       url: "https://api.icndb.com/jokes/random?firstName=Chuck&amp;lastName=Norris",
        data: {format: 'json'},
        error: function(event) {console.log('An error has occurred: ', event);},
        dataType: 'jsonp',
@@ -21,7 +21,7 @@ $(document).ready(function(){
   var weatherUrl = "http://api.wunderground.com/api/" + weatherKey + "/conditions/q/CA/San_Francisco.json"
   weatherButton.on("click", function( ){
       $.ajax({
-        url: "http://api.wunderground.com/api/d8f398ea16990212/conditions/q/CA/San_Francisco.json",
+        url: "https://api.wunderground.com/api/d8f398ea16990212/conditions/q/CA/San_Francisco.json",
         data: {},
         type: 'GET',
         datatype: 'jsonp',
